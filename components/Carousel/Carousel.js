@@ -17,3 +17,44 @@
     <div class="right-button"> > </div>
   </div>
 */
+// import img from '../../assets/carousel/mountains'
+
+function Carousel() {
+  //Create carousel container div
+  let carousel = document.createElement('div');
+  carousel.className = 'carousel';
+
+  //Create all of its elements
+  let leftBtn = document.createElement('div');
+  leftBtn.className ='left-button';
+  leftBtn.textContent = '<';
+
+  let img1 = document.createElement('img');
+  img1.src = "../../assets/carousel/mountains.jpeg";
+  img1.className = 'selected';
+
+  let img2 = document.createElement('img');
+  img2.src = "../../assets/carousel/computer.jpeg";
+
+  let img3 = document.createElement('img');
+  img3.src = "../../assets/carousel/trees.jpeg";
+
+  let img4 = document.createElement('img');
+  img4.src = "../../assets/carousel/turntable.jpeg";
+
+  let rightBtn = document.createElement('div');
+  rightBtn.className = 'right-button';
+  rightBtn.textContent = '>';
+
+  //Append all the element to carousel div
+  carousel.appendChild(leftBtn);
+  carousel.appendChild(img1);
+  carousel.appendChild(img2);
+  carousel.appendChild(img3);
+  carousel.appendChild(img4);
+  carousel.appendChild(rightBtn);
+
+  return document.querySelector('.carousel-container').appendChild(carousel);
+}
+
+Carousel();
