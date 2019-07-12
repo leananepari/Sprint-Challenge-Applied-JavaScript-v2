@@ -24,7 +24,7 @@ function Header() {
 
   let temp = document.createElement('span');
   temp.className = 'temp';
-  temp.textContent = 98;
+  temp.textContent = '98°';
 
   //Append elements to container
   header.appendChild(date);
