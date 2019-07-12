@@ -22,7 +22,7 @@ axios.get('https://lambda-times-backend.herokuapp.com/articles')
     let articles = response.data.articles;
     for (let topic in articles) {
       articles[topic].forEach(topic => {
-        Card(topic);
+        buildCard(topic);
       })
     }
   })
@@ -31,7 +31,7 @@ axios.get('https://lambda-times-backend.herokuapp.com/articles')
   })
 
 
-function Card(article) {
+function buildCard(article) {
   //Create Card container div
   let card = document.createElement('div');
   card.className = 'card';

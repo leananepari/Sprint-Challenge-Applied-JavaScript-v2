@@ -11,14 +11,14 @@
 axios.get('https://lambda-times-backend.herokuapp.com/topics')
   .then(response => {
     response.data.topics.forEach(topic => {
-      Tab(topic);
+      buildTab(topic);
     })
   })
   .catch(error => {
     console.log(error)
   }) 
 
-function Tab(value) {
+function buildTab(value) {
   //Create Tab div
   let tab = document.createElement('div');
   tab.className = 'tab';

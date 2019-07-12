@@ -34,6 +34,9 @@ function Carousel() {
   handleLeftClick = (e) => {
     e.preventDefault();
     if (loopIsOn === false) {
+      document.querySelector(`img[data-img="${index}"]`).classList.remove('selected');
+      index++;
+      document.querySelector(`img[data-img="${index}"]`).classList.add('selected');
       loop();
       loopIsOn = true;
     }
@@ -42,6 +45,9 @@ function Carousel() {
   handleRightClick = (e) => {
     e.preventDefault();
     if (loopIsOn === false) {
+      document.querySelector(`img[data-img="${index}"]`).classList.remove('selected');
+      index++;
+      document.querySelector(`img[data-img="${index}"]`).classList.add('selected');
       loop();
       loopIsOn = true;
     }
