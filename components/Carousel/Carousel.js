@@ -23,6 +23,7 @@ function Carousel() {
   buildCarousel();
 
   let index = 1; //initial index of an image
+  let loopIsOn = false;
   let leftButton = document.querySelector('.left-button');
   let rightButton = document.querySelector('.right-button');
   
@@ -32,28 +33,39 @@ function Carousel() {
 
   handleLeftClick = (e) => {
     e.preventDefault();
-    if (index === 1) {
-      document.querySelector(`img[data-img="${index}"]`).classList.remove('selected');
-      index = 4;
-      document.querySelector(`img[data-img="${index}"]`).classList.add('selected');
-    } else {
-      document.querySelector(`img[data-img="${index}"]`).classList.remove('selected');
-      --index;
-      document.querySelector(`img[data-img="${index}"]`).classList.add('selected');
+    if (loopIsOn === false) {
+      loop();
+      loopIsOn = true;
     }
   }
 
   handleRightClick = (e) => {
     e.preventDefault();
-    if (index === 4) {
-      document.querySelector(`img[data-img="${index}"]`).classList.remove('selected');
-      index = 1;
-      document.querySelector(`img[data-img="${index}"]`).classList.add('selected');
-    } else {
-      document.querySelector(`img[data-img="${index}"]`).classList.remove('selected');
-      ++index;
-      document.querySelector(`img[data-img="${index}"]`).classList.add('selected');
+    if (loopIsOn === false) {
+      loop();
+      loopIsOn = true;
     }
+  }
+
+  loop = () => {
+
+    infinite = () => {
+      setTimeout(function() {
+        if (index < 4) {
+          document.querySelector(`img[data-img="${index}"]`).classList.remove('selected');
+          index++;
+          document.querySelector(`img[data-img="${index}"]`).classList.add('selected');
+          infinite();
+        } else {
+          document.querySelector(`img[data-img="${index}"]`).classList.remove('selected');
+          index = 1;
+          document.querySelector(`img[data-img="${index}"]`).classList.add('selected');
+          infinite();
+        }
+
+      }, 2000)
+    }
+    infinite();
   }
 }
 
